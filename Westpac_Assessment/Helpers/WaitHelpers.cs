@@ -1,0 +1,54 @@
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Westpac_Assessment.Helpers
+{
+    class WaitHelpers
+    {
+        #region waitClickableElement
+        // generic method that allows driver to wait until element is clickable - Explicit Wait
+        public static void WaitClickableElement(IWebDriver driver, string locator, string locatorValue)
+        {
+            try
+            {
+                if (locator == "Id")
+                {
+                    var wait = new WebDriverWait(driver, new TimeSpan(0, 0, 5));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id(locatorValue)));
+                }
+                if (locator == "XPath")
+                {
+                    var wait = new WebDriverWait(driver, new TimeSpan(0, 0, 5));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath(locatorValue)));
+                }
+                if (locator == "CSSSelector")
+                {
+                    var wait = new WebDriverWait(driver, new TimeSpan(0, 0, 5));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector(locatorValue)));
+                }
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("Exception at waitClickableElement", ex.Message);
+            }
+
+        }
+        #endregion
+
+        #region TurnOnWait
+        //Implicit Wait
+        public static void TurnOnWait()
+        {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+        }
+        #endregion
+    }
+}
+}
