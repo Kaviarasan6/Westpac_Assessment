@@ -64,37 +64,55 @@ namespace Westpac_Assessment.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 4
+#line 5
+ testRunner.Given("I Navigate to the website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("01 Log into the application with different inputs")]
-        public virtual void _01LogIntoTheApplicationWithDifferentInputs()
+        [NUnit.Framework.TestCaseAttribute("valid", "tester", "Buggys1$", null)]
+        [NUnit.Framework.TestCaseAttribute("invalid", "kavi001", "Password1$", null)]
+        [NUnit.Framework.TestCaseAttribute("null", "", "Password1$", null)]
+        public virtual void _01LogIntoTheApplicationWithDifferentInputs(string data, string username, string password, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Log into the application with different inputs", ((string[])(null)));
-#line 5
-this.ScenarioSetup(scenarioInfo);
-#line 6
- testRunner.Given("I open the browser and navigate to the url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Log into the application with different inputs", exampleTags);
 #line 7
- testRunner.When("I enter login credentials and click login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
+#line 4
+this.FeatureBackground();
 #line 8
- testRunner.Then("I validate successfull login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And(string.Format("I enter login credentials {0},{1},{2}", data, username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+ testRunner.When("I click login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+ testRunner.Then(string.Format("I should be successfully logged in {0},{1}", data, username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("02 Logging out from the application")]
-        public virtual void _02LoggingOutFromTheApplication()
+        [NUnit.Framework.TestCaseAttribute("valid", "tester", "Buggys1$", null)]
+        public virtual void _02LoggingOutFromTheApplication(string data, string username, string password, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Logging out from the application", ((string[])(null)));
-#line 12
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Logging out from the application", exampleTags);
+#line 18
 this.ScenarioSetup(scenarioInfo);
-#line 13
- testRunner.Given("I open browser and navigate to the url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 14
- testRunner.When("I enter login credentials and click login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 15
- testRunner.And("I click on Logout button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
+#line 4
+this.FeatureBackground();
+#line 19
+ testRunner.And(string.Format("I enter login credentials {0},{1},{2}", data, username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 20
+ testRunner.When("I click login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
+ testRunner.Then(string.Format("I should be successfully logged in {0},{1}", data, username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 22
+ testRunner.When("I click on Logout button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 23
  testRunner.Then("I should be successfully logged out from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

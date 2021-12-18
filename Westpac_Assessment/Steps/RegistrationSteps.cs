@@ -9,7 +9,6 @@ namespace Westpac_Assessment.Steps
     [Binding]
     public class RegistrationSteps:Registration
     {
-        int Sum = 0;
         [Given(@"I Navigate to the website")]
         public void GivenINavigateToTheWebsite()
         {
@@ -40,7 +39,6 @@ namespace Westpac_Assessment.Steps
         {
             RegAssertion();
             Drivers.CloseBrowser();
-            
         }
     }
 }

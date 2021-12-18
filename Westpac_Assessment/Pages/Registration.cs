@@ -38,20 +38,20 @@ namespace Westpac_Assessment.Pages
         public void Register()
         {
             // Enter login details
-            LoginTextbox.SendKeys("TestLogin");
+            LoginTextbox.SendKeys("Kavi_2");
 
             // Enter First Name
            
-            FTextbox.SendKeys("Fname");
+            FTextbox.SendKeys("Kavi");
 
             // Enter Last Name
-            LTextbox.SendKeys("Lname");
+            LTextbox.SendKeys("Arasan");
 
             // Enter Password
-            PwdTextBox.SendKeys("TestPassword");
+            PwdTextBox.SendKeys("Password1$");
 
             // Enter Confirm Password
-            ConfirmPwdTextbox.SendKeys("TestPassword");
+            ConfirmPwdTextbox.SendKeys("Password1$");
         }
 
         // Regsitration Assertion method

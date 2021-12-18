@@ -11,9 +11,10 @@ namespace Westpac_Assessment.Pages
 {
     public class Login
     {
-        public static String username;
-        public static String password;
+        public static String _username;
+        public static String _password;
 
+        string firstName = "test3";
      
         #region Initialize Web Elements 
         // Login textbox
@@ -31,46 +32,41 @@ namespace Westpac_Assessment.Pages
         #endregion
 
         // Login method
-        public void SignIn(String data)
-        {
-            switch (data)
-            {
-                //case "valid":
-                //    username = Drivers.ExcelLib.ReadData(2, "Login");
-                //    password = Drivers.ExcelLib.ReadData(2, "Password");
-                //    break;
-                //case "invalid":
-                //    username = Drivers.ExcelLib.ReadData(2, "Invalid Username");
-                //    password = Drivers.ExcelLib.ReadData(2, "Invalid Password");
-                //    break;
-                //case "null":
-                //    username = Drivers.ExcelLib.ReadData(2, "Null Username");
-                //    password = Drivers.ExcelLib.ReadData(2, "Null Password");
-                //    break;
-            }
-            String screenshotName = "Login" + "_" + data;
-            // Enter user name
-            Assert.AreEqual(LoginTextbox.Displayed, true);
-            LoginTextbox.SendKeys(username);
-
-            // Enter password
-            Assert.AreEqual(PasswordTextbox.Displayed, true);
-            PasswordTextbox.SendKeys(password);
-
-            // Click login button
-            Assert.AreEqual(LoginButton.Displayed, true);
-            LoginButton.Click();
-            WaitHelpers.TurnOnWait();
-
-        }
-
-        // Login Assertion
-        public void Assertion(String data)
+        public void SignIn(string data, string username, string password)
         {
             switch (data)
             {
                 case "valid":
-                    Assert.IsTrue(Drivers.driver.Title.Equals("Buggy Cars Rating"));
+                    _username = username;
+                    _password = password;
+                    break;
+                case "invalid":
+                    _username = username;
+                    _password = password;
+                    break;
+                case "null":
+                    _username = username;
+                    _password = password;
+                    break;
+            }
+            // Enter user name
+            Assert.AreEqual(LoginTextbox.Displayed, true);
+            LoginTextbox.SendKeys(_username);
+
+            // Enter password
+            Assert.AreEqual(PasswordTextbox.Displayed, true);
+            PasswordTextbox.SendKeys(_password);
+        }
+
+        // Login Assertion
+        public void LoginAssertion(String data, string username)
+        {
+            switch (data)
+            {
+                case "valid":
+                    string name ="Hi, " + firstName;
+                    string actualName = Drivers.driver.FindElement(By.XPath("//*[@class=\"pull-xs-right\"]//*[@class=\"nav-link disabled\"]")).Text;
+                    Assert.AreEqual(name, actualName);
                     Console.WriteLine("Test Passed");
                     break;
 

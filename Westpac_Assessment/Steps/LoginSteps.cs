@@ -1,45 +1,43 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using TechTalk.SpecFlow;
+using Westpac_Assessment.Helpers;
+using Westpac_Assessment.Pages;
 
 namespace Westpac_Assessment.Steps
 {
     [Binding]
-    public class LoginSteps
+    public class _2_LoginSteps:Login
     {
-        [Given(@"I open the browser and navigate to the url")]
-        public void GivenIOpenTheBrowserAndNavigateToTheUrl()
+        [Given(@"I enter login credentials (.*),(.*),(.*)")]
+        public void GivenIEnterLoginCredentials(string data, string username, string password)
         {
-            ScenarioContext.Current.Pending();
+            SignIn(data, username, password);
         }
         
-        [Given(@"I open browser and navigate to the url")]
-        public void GivenIOpenBrowserAndNavigateToTheUrl()
+        [When(@"I click login button")]
+        public void WhenIClickLoginButton()
         {
-            ScenarioContext.Current.Pending();
-        }
-        
-        [When(@"I enter login credentials and click login button")]
-        public void WhenIEnterLoginCredentialsAndClickLoginButton()
-        {
-            ScenarioContext.Current.Pending();
+            LoginButton.Click();
+            WaitHelpers.TurnOnWait();
         }
         
         [When(@"I click on Logout button")]
         public void WhenIClickOnLogoutButton()
         {
-            ScenarioContext.Current.Pending();
+            LogoutButton.Click();
         }
         
-        [Then(@"I validate successfull login")]
-        public void ThenIValidateSuccessfullLogin()
+        [Then(@"I should be successfully logged in (.*),(.*)")]
+        public void ThenIShouldBeSuccessfullyLoggedIn(string data, string username)
         {
-            ScenarioContext.Current.Pending();
+            LoginAssertion(data, username);
         }
         
         [Then(@"I should be successfully logged out from the application")]
         public void ThenIShouldBeSuccessfullyLoggedOutFromTheApplication()
         {
-            ScenarioContext.Current.Pending();
+            LogOutAssertion();
         }
     }
 }
