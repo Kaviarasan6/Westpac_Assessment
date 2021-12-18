@@ -1,8 +1,11 @@
-﻿using System;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Westpac_Assessment.Helpers;
 
 namespace Westpac_Assessment.Pages
 {
@@ -10,7 +13,7 @@ namespace Westpac_Assessment.Pages
     {
         #region Initialize Web Elements 
         // Registration Button
-        public IWebElement RegButton => Drivers.driver.FindElement(By.XPath("//a[contains(text(),'Register')]"));
+        public static IWebElement RegButton => Drivers.driver.FindElement(By.XPath("//a[contains(text(),'Register')]"));
 
         //Login Textbox
         public IWebElement LoginTextbox => Drivers.driver.FindElement(By.XPath("//input[@id='username']"));
@@ -35,24 +38,20 @@ namespace Westpac_Assessment.Pages
         public void Register()
         {
             // Enter login details
-            Assert.AreEqual(LoginTextbox.Displayed, true);
-            LoginTextbox.SendKeys(Drivers.ExcelLib.ReadData(2, "Login"));
+            LoginTextbox.SendKeys("TestLogin");
 
             // Enter First Name
-            Assert.AreEqual(FTextbox.Displayed, true);
-            FTextbox.SendKeys(Drivers.ExcelLib.ReadData(2, "First Name"));
+           
+            FTextbox.SendKeys("Fname");
 
             // Enter Last Name
-            Assert.AreEqual(LTextbox.Displayed, true);
-            LTextbox.SendKeys(Drivers.ExcelLib.ReadData(2, "Last Name"));
+            LTextbox.SendKeys("Lname");
 
             // Enter Password
-            Assert.AreEqual(PwdTextBox.Displayed, true);
-            PwdTextBox.SendKeys(Drivers.ExcelLib.ReadData(2, "Password"));
+            PwdTextBox.SendKeys("TestPassword");
 
             // Enter Confirm Password
-            Assert.AreEqual(ConfirmPwdTextbox.Displayed, true);
-            ConfirmPwdTextbox.SendKeys(Drivers.ExcelLib.ReadData(2, "Confirm Password"));
+            ConfirmPwdTextbox.SendKeys("TestPassword");
         }
 
         // Regsitration Assertion method

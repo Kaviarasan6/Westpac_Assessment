@@ -45,10 +45,10 @@ namespace Westpac_Assessment.Helpers
         //Implicit Wait
         public static void TurnOnWait()
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            Drivers.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
         }
         #endregion
     }
 }
-}
+

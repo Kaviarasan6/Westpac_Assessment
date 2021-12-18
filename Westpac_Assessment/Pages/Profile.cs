@@ -1,8 +1,13 @@
-﻿using System;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Westpac_Assessment.Helpers;
 
 namespace Westpac_Assessment.Pages
 {
@@ -29,13 +34,13 @@ namespace Westpac_Assessment.Pages
         public void SelectGender()
         {
             GenderTextbox.Clear();
-            GenderTextbox.SendKeys(Drivers.ExcelLib.ReadData(2, "Gender"));
+            GenderTextbox.SendKeys("");
         }
 
         // Select Hobby 
         public void SelectHobby()
         {
-            new SelectElement(HobbyTextbox).SelectByText(Drivers.ExcelLib.ReadData(2, "Hobby"));
+            new SelectElement(HobbyTextbox).SelectByText("");
         }
 
         // Update profile method
@@ -48,26 +53,26 @@ namespace Westpac_Assessment.Pages
             //Update FirstName
             WaitHelpers.WaitClickableElement(Drivers.driver, "XPath", "//input[@id='firstName']");
             FirstNameTextbox.Clear();
-            FirstNameTextbox.SendKeys(Drivers.ExcelLib.ReadData(2, "Update FirstName"));
+            FirstNameTextbox.SendKeys("");
 
             //Update Last Name
             LastNameTextBox.Clear();
-            LastNameTextBox.SendKeys(Drivers.ExcelLib.ReadData(2, "Update LastName"));
+            LastNameTextBox.SendKeys("");
 
             //Select gender from dropdown
             SelectGender();
 
             //Enter age into the age field
             AgeTextBox.Clear();
-            AgeTextBox.SendKeys(Drivers.ExcelLib.ReadData(2, "Age"));
+            AgeTextBox.SendKeys("");
 
             //Enter Address detail into the address field
             AddressTextBox.Clear();
-            AddressTextBox.SendKeys(Drivers.ExcelLib.ReadData(2, "Address"));
+            AddressTextBox.SendKeys("");
 
             //Enter Phone number into the phone field
             PhonetextBox.Clear();
-            PhonetextBox.SendKeys(Drivers.ExcelLib.ReadData(2, "Phone"));
+            PhonetextBox.SendKeys("");
 
             //Select hobby from the dropdown
             SelectHobby();
@@ -85,13 +90,13 @@ namespace Westpac_Assessment.Pages
             WaitHelpers.TurnOnWait();
 
             // Entering current password
-            CurrentPassword.SendKeys(Drivers.ExcelLib.ReadData(2, "Password"));
+            CurrentPassword.SendKeys("");
 
             // Entering New password
-            NewPassword.SendKeys(Drivers.ExcelLib.ReadData(2, "New Password"));
+            NewPassword.SendKeys("");
 
             // Entering Confirm password
-            ConfirmPassword.SendKeys(Drivers.ExcelLib.ReadData(2, "New Password"));
+            ConfirmPassword.SendKeys("");
         }
 
         // Update Assertion

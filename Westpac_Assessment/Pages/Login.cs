@@ -1,9 +1,11 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Westpac_Assessment.Helpers;
 
 namespace Westpac_Assessment.Pages
 {
@@ -29,22 +31,22 @@ namespace Westpac_Assessment.Pages
         #endregion
 
         // Login method
-        public void Login(String data)
+        public void SignIn(String data)
         {
             switch (data)
             {
-                case "valid":
-                    username = Drivers.ExcelLib.ReadData(2, "Login");
-                    password = Drivers.ExcelLib.ReadData(2, "Password");
-                    break;
-                case "invalid":
-                    username = Drivers.ExcelLib.ReadData(2, "Invalid Username");
-                    password = Drivers.ExcelLib.ReadData(2, "Invalid Password");
-                    break;
-                case "null":
-                    username = Drivers.ExcelLib.ReadData(2, "Null Username");
-                    password = Drivers.ExcelLib.ReadData(2, "Null Password");
-                    break;
+                //case "valid":
+                //    username = Drivers.ExcelLib.ReadData(2, "Login");
+                //    password = Drivers.ExcelLib.ReadData(2, "Password");
+                //    break;
+                //case "invalid":
+                //    username = Drivers.ExcelLib.ReadData(2, "Invalid Username");
+                //    password = Drivers.ExcelLib.ReadData(2, "Invalid Password");
+                //    break;
+                //case "null":
+                //    username = Drivers.ExcelLib.ReadData(2, "Null Username");
+                //    password = Drivers.ExcelLib.ReadData(2, "Null Password");
+                //    break;
             }
             String screenshotName = "Login" + "_" + data;
             // Enter user name

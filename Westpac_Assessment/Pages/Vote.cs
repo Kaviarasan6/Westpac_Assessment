@@ -1,8 +1,13 @@
-﻿using System;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Westpac_Assessment.Helpers;
 
 namespace Westpac_Assessment.Pages
 {
@@ -62,7 +67,7 @@ namespace Westpac_Assessment.Pages
             // Check if  AddComment text box is present and then enter comment
             Assert.AreEqual(AddComment.Displayed, true);
 
-            AddComment.SendKeys(Drivers.ExcelLib.ReadData(2, "Comment"));
+            AddComment.SendKeys("");
             VoteButton.Click();
         }
 
