@@ -18,21 +18,20 @@ namespace Westpac_Assessment.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("2_Login")]
-    public partial class _2_LoginFeature
+    [NUnit.Framework.DescriptionAttribute("6_UpdateProfile")]
+    public partial class _6_UpdateProfileFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "2_Login.feature"
+#line 1 "6_UpdateProfile.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "2_Login", "\t As a tester, I wanted to test the login functionality to the Buggy Cars rating " +
-                    "application", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "6_UpdateProfile", "\tAs a tester, I need to test my profile feature", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -69,65 +68,61 @@ namespace Westpac_Assessment.Features
 #line 4
 #line 5
  testRunner.Given("I Navigate to the website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 6
+ testRunner.And("I login to the application using valid credentials valid,TestBuggy,Password1$", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("01 Log into the application with different inputs")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("valid", "TestBuggy", "Password1$", "Kavi", null)]
-        [NUnit.Framework.TestCaseAttribute("invalid", "kavi001", "Password1$", "", null)]
-        [NUnit.Framework.TestCaseAttribute("null", "", "Password1$", "", null)]
-        public virtual void _01LogIntoTheApplicationWithDifferentInputs(string data, string username, string password, string firstname, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("01_Update my information")]
+        [NUnit.Framework.CategoryAttribute("smoke")]
+        [NUnit.Framework.TestCaseAttribute("boy", "girl", "male", "12", "33 cuba street", "02251028", "Drawing", null)]
+        public virtual void _01_UpdateMyInformation(string firstname, string lastname, string gender, string age, string address, string phone, string hobby, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "Smoke"};
+                    "smoke"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Log into the application with different inputs", @__tags);
-#line 8
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01_Update my information", @__tags);
+#line 9
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
-#line 9
- testRunner.And(string.Format("I enter login credentials {0},{1},{2}", data, username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
- testRunner.When("I click login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And(string.Format("I enter data to all fields {0},{1},{2},{3},{4},{5},{6}", firstname, lastname, gender, age, address, phone, hobby), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.Then(string.Format("I should be successfully logged in {0},{1}", data, firstname), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I click on Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
+ testRunner.Then("The profile should be saved successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("02 Logging out from the application")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("valid", "TestBuggy", "Password1$", "Kavi", null)]
-        public virtual void _02LoggingOutFromTheApplication(string data, string username, string password, string firstname, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("02_Change Password")]
+        [NUnit.Framework.CategoryAttribute("smoke")]
+        [NUnit.Framework.TestCaseAttribute("Password1$", "Password2$", "Password2$", null)]
+        public virtual void _02_ChangePassword(string currentPassword, string newPassword, string confirmPassword, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "Smoke"};
+                    "smoke"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Logging out from the application", @__tags);
-#line 20
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02_Change Password", @__tags);
+#line 19
 this.ScenarioSetup(scenarioInfo);
 #line 4
 this.FeatureBackground();
+#line 20
+ testRunner.And(string.Format("I enter data to the password fields {0},{1},{2}", currentPassword, newPassword, confirmPassword), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
- testRunner.And(string.Format("I enter login credentials {0},{1},{2}", data, username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I click on Save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 22
- testRunner.When("I click login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 23
- testRunner.Then(string.Format("I should be successfully logged in {0},{1}", data, firstname), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 24
- testRunner.When("I click on Logout button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 25
- testRunner.Then("I should be successfully logged out from the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The password should be changed successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

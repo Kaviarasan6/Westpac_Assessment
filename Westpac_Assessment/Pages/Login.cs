@@ -9,13 +9,12 @@ using Westpac_Assessment.Helpers;
 
 namespace Westpac_Assessment.Pages
 {
-    public class Login
+    public class Login:Registration
     {
-        public static String _username;
-        public static String _password;
+        public string _username;
+        public string _password;
 
-        string firstName = "test3";
-     
+    
         #region Initialize Web Elements 
         // Login textbox
         public IWebElement LoginTextbox => Drivers.driver.FindElement(By.XPath("//input[@name='login']"));
@@ -59,12 +58,12 @@ namespace Westpac_Assessment.Pages
         }
 
         // Login Assertion
-        public void LoginAssertion(String data, string username)
+        public void LoginAssertion(String data, string firstname)
         {
             switch (data)
             {
                 case "valid":
-                    string name ="Hi, " + firstName;
+                    string name ="Hi, " + firstname;
                     string actualName = Drivers.driver.FindElement(By.XPath("//*[@class=\"pull-xs-right\"]//*[@class=\"nav-link disabled\"]")).Text;
                     Assert.AreEqual(name, actualName);
                     Console.WriteLine("Test Passed");

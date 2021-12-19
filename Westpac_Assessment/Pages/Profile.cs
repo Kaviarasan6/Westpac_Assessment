@@ -31,20 +31,20 @@ namespace Westpac_Assessment.Pages
         #endregion
 
         // Select Gender
-        public void SelectGender()
+        public void SelectGender(string gender)
         {
             GenderTextbox.Clear();
-            GenderTextbox.SendKeys("");
+            GenderTextbox.SendKeys(gender);
         }
 
         // Select Hobby 
-        public void SelectHobby()
+        public void SelectHobby(string hobby)
         {
-            new SelectElement(HobbyTextbox).SelectByText("");
+            new SelectElement(HobbyTextbox).SelectByText(hobby);
         }
 
         // Update profile method
-        public void UpdateProfile()
+        public void UpdateProfile(string firstname, string lastname, string gender, string age, string address, string phone, string hobby)
         {
             //Click on Profile button
             WaitHelpers.TurnOnWait();
@@ -53,33 +53,33 @@ namespace Westpac_Assessment.Pages
             //Update FirstName
             WaitHelpers.WaitClickableElement(Drivers.driver, "XPath", "//input[@id='firstName']");
             FirstNameTextbox.Clear();
-            FirstNameTextbox.SendKeys("");
+            FirstNameTextbox.SendKeys(firstname);
 
             //Update Last Name
             LastNameTextBox.Clear();
-            LastNameTextBox.SendKeys("");
+            LastNameTextBox.SendKeys(lastname);
 
             //Select gender from dropdown
-            SelectGender();
+            SelectGender(gender);
 
             //Enter age into the age field
             AgeTextBox.Clear();
-            AgeTextBox.SendKeys("");
+            AgeTextBox.SendKeys(age);
 
             //Enter Address detail into the address field
             AddressTextBox.Clear();
-            AddressTextBox.SendKeys("");
+            AddressTextBox.SendKeys(address);
 
             //Enter Phone number into the phone field
             PhonetextBox.Clear();
-            PhonetextBox.SendKeys("");
+            PhonetextBox.SendKeys(phone);
 
             //Select hobby from the dropdown
-            SelectHobby();
+            SelectHobby(hobby);
         }
 
         // Update Password
-        public void ChangePassword()
+        public void ChangePassword(string currentPassword, string newPassword, string confirmPassword)
         {
             // Wait untill the profile button is found
             WaitHelpers.WaitClickableElement(Drivers.driver, "XPath", "//a[contains(text(),'Profile')]");
@@ -90,16 +90,16 @@ namespace Westpac_Assessment.Pages
             WaitHelpers.TurnOnWait();
 
             // Entering current password
-            CurrentPassword.SendKeys("");
+            CurrentPassword.SendKeys(currentPassword);
 
             // Entering New password
-            NewPassword.SendKeys("");
+            NewPassword.SendKeys(newPassword);
 
             // Entering Confirm password
-            ConfirmPassword.SendKeys("");
+            ConfirmPassword.SendKeys(confirmPassword);
         }
 
-        // Update Assertion
+        // Assertion for updating fields
         public void AssertUpdate()
         {
             Thread.Sleep(1000);

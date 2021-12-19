@@ -26,8 +26,7 @@ namespace Westpac_Assessment.Helpers
         // Closing Browser
         public static void CloseBrowser()
         {
-          
-            driver.Close();
+            driver.Quit();
         }
     }
 }

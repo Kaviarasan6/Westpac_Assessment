@@ -1,45 +1,53 @@
 ﻿using System;
 using TechTalk.SpecFlow;
+using Westpac_Assessment.Helpers;
+using Westpac_Assessment.Pages;
 
 namespace Westpac_Assessment.Steps
 {
     [Binding]
-    public class UpdateProfileSteps
+    public class UpdateProfileSteps : Profile
     {
-        [Given(@"I login to the application using ""(.*)"" credentials")]
-        public void GivenILoginToTheApplicationUsingCredentials(string p0)
+        [Given(@"I login to the application using valid credentials (.*),(.*),(.*)")]
+        public void GivenILoginToTheApplicationUsingValidCredentials(string data, string username, string password)
         {
-            ScenarioContext.Current.Pending();
+            Login login = new Login();
+            login.SignIn(data, username, password);
+            login.LoginButton.Click();
         }
-        
-        [Given(@"I enter data to all fields")]
-        public void GivenIEnterDataToAllFields()
+
+
+        [Given(@"I enter data to all fields (.*),(.*),(.*),(.*),(.*),(.*),(.*)")]
+        public void GivenIEnterDataToAllFields(string firstname, string lastname, string gender, string age, string address, string phone, string hobby)
         {
-            ScenarioContext.Current.Pending();
+            UpdateProfile(firstname, lastname, gender, age, address, phone, hobby);
         }
-        
-        [Given(@"I enter data to the password fields")]
-        public void GivenIEnterDataToThePasswordFields()
+
+        [Given(@"I enter data to the password fields (.*),(.*),(.*)")]
+        public void GivenIEnterDataToThePasswordFields(string currentPassword, string newPassword, string confirmPassword)
         {
-            ScenarioContext.Current.Pending();
+            ChangePassword(currentPassword,newPassword,confirmPassword);
         }
-        
+
+
         [When(@"I click on Save button")]
         public void WhenIClickOnSaveButton()
         {
-            ScenarioContext.Current.Pending();
+            SaveButton.Click();
         }
-        
+
         [Then(@"The profile should be saved successfully")]
         public void ThenTheProfileShouldBeSavedSuccessfully()
         {
-            ScenarioContext.Current.Pending();
+            AssertUpdate();
+            Drivers.CloseBrowser();
         }
-        
+
         [Then(@"The password should be changed successfully")]
         public void ThenThePasswordShouldBeChangedSuccessfully()
         {
-            ScenarioContext.Current.Pending();
+            AssertUpdate();
+            Drivers.CloseBrowser();
         }
     }
 }

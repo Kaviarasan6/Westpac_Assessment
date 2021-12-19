@@ -21,13 +21,13 @@ namespace Westpac_Assessment.Steps
         {
             RegButton.Click();
         }
-        
-        [Given(@"I fill registration details")]
-        public void GivenIFillRegistrationDetails()
+
+        [Given(@"I fill registration details (.*), (.*), (.*), (.*), (.*)")]
+        public void GivenIFillRegistrationDetails(string username, string firstname, string lastname, string password, string confirmPassword)
         {
-            Register();
+            Register(username,firstname,lastname,password,confirmPassword);
         }
-        
+
         [When(@"I click on Register button")]
         public void WhenIClickOnRegisterButton()
         {

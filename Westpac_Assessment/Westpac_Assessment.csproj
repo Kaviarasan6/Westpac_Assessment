@@ -89,10 +89,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>2_Login.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\3_UpdateProfile.feature.cs">
+    <Compile Include="Features\6_UpdateProfile.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>3_UpdateProfile.feature</DependentUpon>
+      <DependentUpon>6_UpdateProfile.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\3_Voting_PopularMake.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>3_Voting_PopularMake.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\4_Voting_PopularModel.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>4_Voting_PopularModel.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\5_Voting_OverallRating.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>5_Voting_OverallRating.feature</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Drivers.cs" />
     <Compile Include="Helpers\WaitHelpers.cs" />
@@ -105,6 +120,9 @@
     <Compile Include="Steps\LoginSteps.cs" />
     <Compile Include="Steps\RegistrationSteps.cs" />
     <Compile Include="Steps\UpdateProfileSteps.cs" />
+    <Compile Include="Steps\VoteThroughOverallRatingSteps.cs" />
+    <Compile Include="Steps\VoteThroughPopularMakeSteps.cs" />
+    <Compile Include="Steps\VoteThroughPopularModelSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -116,15 +134,26 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>2_Login.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\3_UpdateProfile.feature">
+    <None Include="Features\6_UpdateProfile.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>3_UpdateProfile.feature.cs</LastGenOutput>
+      <LastGenOutput>6_UpdateProfile.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\3_Voting_PopularMake.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>3_Voting_PopularMake.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\4_Voting_PopularModel.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>4_Voting_PopularModel.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\5_Voting_OverallRating.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>5_Voting_OverallRating.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Readme.md" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Config\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

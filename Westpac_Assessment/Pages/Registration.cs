@@ -35,23 +35,22 @@ namespace Westpac_Assessment.Pages
         #endregion
 
         // Registration method - Check if the element is present and then perform function
-        public void Register()
+        public void Register(string username, string firstname, string lastname, string password, string confirmPassword)
         {
             // Enter login details
-            LoginTextbox.SendKeys("Kavi_2");
+            LoginTextbox.SendKeys(username);
 
             // Enter First Name
-           
-            FTextbox.SendKeys("Kavi");
+            FTextbox.SendKeys(firstname);
 
             // Enter Last Name
-            LTextbox.SendKeys("Arasan");
+            LTextbox.SendKeys(lastname);
 
             // Enter Password
-            PwdTextBox.SendKeys("Password1$");
+            PwdTextBox.SendKeys(password);
 
             // Enter Confirm Password
-            ConfirmPwdTextbox.SendKeys("Password1$");
+            ConfirmPwdTextbox.SendKeys(confirmPassword);
         }
 
         // Regsitration Assertion method

@@ -29,15 +29,17 @@ namespace Westpac_Assessment.Steps
         }
         
         [Then(@"I should be successfully logged in (.*),(.*)")]
-        public void ThenIShouldBeSuccessfullyLoggedIn(string data, string username)
+        public void ThenIShouldBeSuccessfullyLoggedIn(string data, string firstname)
         {
-            LoginAssertion(data, username);
+            LoginAssertion(data, firstname);
+            Drivers.CloseBrowser();
         }
         
         [Then(@"I should be successfully logged out from the application")]
         public void ThenIShouldBeSuccessfullyLoggedOutFromTheApplication()
         {
             LogOutAssertion();
+            Drivers.CloseBrowser();
         }
     }
 }
